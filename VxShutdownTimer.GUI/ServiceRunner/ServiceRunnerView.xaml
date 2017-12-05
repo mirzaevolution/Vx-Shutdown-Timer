@@ -4,10 +4,49 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:VxShutdownTimer.GUI.ServiceRunner"
+                          xmlns:controls="http://metro.mahapps.com/winfx/xaml/controls"
+
              mc:Ignorable="d" 
-             d:DesignHeight="300" d:DesignWidth="300">
-    <Grid>
-        <TextBlock Text="Runner" FontSize="40" HorizontalAlignment="Center" VerticalAlignment="Center"
-                       Style="{StaticResource DigitalFont}" Foreground="White"/>
+             d:DesignHeight="300" d:DesignWidth="400">
+    <Grid Margin="0,20,0,0">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="100"/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <Image Name="ImageServiceStatus" Source="/Contents/ico-status-paused.png" Margin="10,10,10,5"/>
+        <Border  Grid.Column="1">
+            <StackPanel >
+                <TextBlock Text="Service Status:" Margin="10,3,3,3" FontSize="27" 
+                   Foreground="White"/>
+                <TextBlock Name="TextStatus" Text="Unknown" Margin="10,3,3,3" FontSize="35" FontWeight="Bold"
+                       HorizontalAlignment="Left" Foreground="White"/>
+            </StackPanel>
+        </Border>
+        <TextBlock  Grid.Row="1" Grid.Column="1" Name="TextServiceName" FontSize="18" Foreground="White" Margin="10,10,10,20" Text="Service Name:"/>
+        <WrapPanel Grid.Row="2" Grid.Column="1" TextElement.FontFamily="Sans Serif">
+            <Button Name="ButtonStart" HorizontalAlignment="Left"
+                Content="Start" Click="ButtonStart_Click" Width="80" Margin="10,5,5,5" Height="30"
+                BorderBrush="Red" BorderThickness="1.4" Cursor="Hand"/>
+            <Button Name="ButtonPause" HorizontalAlignment="Left"
+                Content="Pause" Click="ButtonPause_Click" Width="80" Margin="10,5,5,5" Height="30"
+                BorderBrush="Red" BorderThickness="1.4" Cursor="Hand"/>
+            <Button Name="ButtonContinue" HorizontalAlignment="Left"
+                Content="Continue" Click="ButtonContinue_Click" Width="80" Margin="10,5,5,5" Height="30"
+                BorderBrush="Red" BorderThickness="1.4" Cursor="Hand"/>
+            <Button Name="ButtonStop" HorizontalAlignment="Left"
+                Content="Stop" Click="ButtonStop_Click" Width="80" Margin="10,5,5,5" Height="30"
+                BorderBrush="Red" BorderThickness="1.4" Cursor="Hand"/>
+            <Button Name="ButtonRefresh" HorizontalAlignment="Left"
+                Content="Refresh" Click="ButtonRefresh_Click" Width="80" Margin="10,5,5,5" Height="30"
+                BorderBrush="Red" BorderThickness="1.4" Cursor="Hand"/>
+        </WrapPanel>
+
+        <controls:ProgressRing Name="ProgressLoading" IsActive="False" Foreground="Red" Height="87" Width="87" Grid.Row="4" Grid.ColumnSpan="2"/>
     </Grid>
 </UserControl>

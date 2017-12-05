@@ -79,7 +79,7 @@
         <DataGrid Margin="10,5,10,5" Grid.Row="2" ItemsSource="{Binding ShutdownModelCollection}"
                   SelectedItem="{Binding SelectedModel}" AutoGenerateColumns="False" IsSynchronizedWithCurrentItem="True"
                   CanUserAddRows="False" CanUserDeleteRows="False" IsEnabled="{Binding CanUseDatagrid}"
-                  BorderBrush="Red" BorderThickness="1.3">
+                  BorderBrush="Red" BorderThickness="1.3" Style="{StaticResource AzureDataGrid}">
             <DataGrid.Columns>
                 <DataGridTextColumn Header="Date Time" Binding="{Binding DateTime}" IsReadOnly="True" Width="*"/>
                 <DataGridTextColumn Header="Operation" Binding="{Binding ShutdownType}" IsReadOnly="True" Width="*"/>

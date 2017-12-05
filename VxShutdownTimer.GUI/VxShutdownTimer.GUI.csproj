@@ -192,5 +192,11 @@
     <Resource Include="Contents\shutdown.ico" />
     <Resource Include="Contents\sleep.ico" />
   </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Contents\ico-status-not-registered.png" />
+    <Resource Include="Contents\ico-status-paused.png" />
+    <Resource Include="Contents\ico-status-running.png" />
+    <Resource Include="Contents\ico-status-stopped.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

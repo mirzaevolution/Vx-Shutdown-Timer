@@ -157,7 +157,7 @@ namespace VxShutdownTimer.GUI.ShutdownTimer
                         break;
                     case "Hibernate":
                         Console.WriteLine("Hibernate");
-                        //ShutdownInvoker.SetSuspendState(true, true, true);
+                        ShutdownInvoker.SetSuspendState(true, true, true);
                         break;
                     case "Restart":
                         Console.WriteLine("Restart");
@@ -165,7 +165,7 @@ namespace VxShutdownTimer.GUI.ShutdownTimer
                         break;
                     case "Sleep":
                         Console.WriteLine("Sleep");
-                        //ShutdownInvoker.SetSuspendState(false, true, true);
+                        ShutdownInvoker.SetSuspendState(false, true, true);
                         break;
                     case "Log Off":
                         Console.WriteLine("Log Off");
@@ -173,7 +173,7 @@ namespace VxShutdownTimer.GUI.ShutdownTimer
                         break;
                     case "Lock":
                         Console.WriteLine("Lock");
-                        ShutdownInvoker.LockWorkStation();
+                        //ShutdownInvoker.LockWorkStation();
                         break;
                 }
             }

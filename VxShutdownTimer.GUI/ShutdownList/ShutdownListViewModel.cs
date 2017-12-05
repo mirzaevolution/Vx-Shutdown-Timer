@@ -193,15 +193,15 @@ namespace VxShutdownTimer.GUI.ShutdownList
                             success = false;
                             error = result.ErrorMessage;
                         }
-                        //else
-                        //{
-                        //    result = Controller.RefreshService();
-                        //    if (!result.Success)
-                        //    {
-                        //        success = false;
-                        //        error = $"Data {mode} successfully. But, service generated error.\n{result.ErrorMessage}";
-                        //    }
-                        //}
+                        else
+                        {
+                            result = Controller.RefreshService();
+                            if (!result.Success)
+                            {
+                                success = false;
+                                error = $"Data {mode} successfully. But, service generated error.\n{result.ErrorMessage}";
+                            }
+                        }
                     }
                     catch (Exception ex)
                     {

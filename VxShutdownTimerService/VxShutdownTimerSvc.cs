@@ -66,22 +66,28 @@ namespace VxShutdownTimerService
                 switch (type)
                 {
                     case ShutdownType.Shutdown:
-                        ShutdownInvoker.InvokeShutdown();
+                        File.AppendAllText("E:\\data.log", "Shutdown\n");
+                        //ShutdownInvoker.InvokeShutdown();
                         break;
                     case ShutdownType.Hibernate:
-                        ShutdownInvoker.SetSuspendState(true, true, true);
+                        File.AppendAllText("E:\\data.log", "Hibernate\n");
+                        //ShutdownInvoker.SetSuspendState(true, true, true);
                         break;
                     case ShutdownType.Sleep:
-                        ShutdownInvoker.SetSuspendState(false, true, true);
+                        File.AppendAllText("E:\\data.log", "Sleep\n");
+                        //ShutdownInvoker.SetSuspendState(false, true, true);
                         break;
                     case ShutdownType.LogOff:
-                        ShutdownInvoker.ExitWindowsEx(0, 0);
+                        File.AppendAllText("E:\\data.log", "Log Off\n");
+                        //ShutdownInvoker.ExitWindowsEx(0, 0);
                         break;
                     case ShutdownType.Lock:
-                        ShutdownInvoker.LockWorkStation();
+                        File.AppendAllText("E:\\data.log", "Lock\n");
+                        //ShutdownInvoker.LockWorkStation();
                         break;
                     case ShutdownType.Restart:
-                        ShutdownInvoker.InvokeRestart();
+                        File.AppendAllText("E:\\data.log", "Restart\n");
+                        //ShutdownInvoker.InvokeRestart();
                         break;
                 }
             }
