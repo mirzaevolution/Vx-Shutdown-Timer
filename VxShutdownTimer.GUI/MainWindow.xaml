@@ -1,0 +1,39 @@
+﻿<controls:MetroWindow x:Class="VxShutdownTimer.GUI.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:VxShutdownTimer.GUI"
+        xmlns:timer="clr-namespace:VxShutdownTimer.GUI.ShutdownTimer"
+        xmlns:list="clr-namespace:VxShutdownTimer.GUI.ShutdownList"
+        xmlns:schedule="clr-namespace:VxShutdownTimer.GUI.ShutdownSchedule"
+        xmlns:runner="clr-namespace:VxShutdownTimer.GUI.ServiceRunner"
+        xmlns:controls="http://metro.mahapps.com/winfx/xaml/controls"
+        mc:Ignorable="d" Icon="/Contents/hibernate.ico"
+        BorderBrush="Red" WindowStartupLocation="CenterScreen"
+        Title="Vx Shutdown Timer" Height="500" Width="425" MinWidth="400" MinHeight="450">
+    <controls:MetroWindow.Resources>
+        <timer:ShutdownTimerView x:Key="TimerView"/>
+        <schedule:ShutdownScheduleView x:Key="ScheduleView"/>
+        <runner:ServiceRunnerView x:Key="RunnerView"/>
+        <list:ShutdownListView x:Key="ListView"/>
+    </controls:MetroWindow.Resources>
+    <controls:MetroTabControl controls:TabControlHelper.IsUnderlined="True" 
+                              controls:TabControlHelper.Underlined="TabPanel"
+                              controls:TabControlHelper.UnderlineSelectedBrush="LightBlue"
+                              >
+        <controls:MetroTabItem Header="Timer" Style="{StaticResource DigitalFont}">
+            <controls:MetroContentControl Content="{StaticResource TimerView}" TransitionsEnabled="True"/>
+        </controls:MetroTabItem>
+        <controls:MetroTabItem Header="Schedule" Style="{StaticResource DigitalFont}">
+            <controls:MetroContentControl Content="{StaticResource ScheduleView}" TransitionsEnabled="True"/>
+        </controls:MetroTabItem>
+        <controls:MetroTabItem Header="List" Style="{StaticResource DigitalFont}">
+            <controls:MetroContentControl Content="{StaticResource ListView}" TransitionsEnabled="True"/>
+        </controls:MetroTabItem>
+
+        <controls:MetroTabItem Header="Service" Style="{StaticResource DigitalFont}">
+            <controls:MetroContentControl Content="{StaticResource RunnerView}" TransitionsEnabled="True"/>
+        </controls:MetroTabItem>
+    </controls:MetroTabControl>
+</controls:MetroWindow>

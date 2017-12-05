@@ -1,0 +1,13 @@
+﻿<UserControl x:Class="VxShutdownTimer.GUI.ServiceRunner.ServiceRunnerView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:VxShutdownTimer.GUI.ServiceRunner"
+             mc:Ignorable="d" 
+             d:DesignHeight="300" d:DesignWidth="300">
+    <Grid>
+        <TextBlock Text="Runner" FontSize="40" HorizontalAlignment="Center" VerticalAlignment="Center"
+                       Style="{StaticResource DigitalFont}" Foreground="White"/>
+    </Grid>
+</UserControl>

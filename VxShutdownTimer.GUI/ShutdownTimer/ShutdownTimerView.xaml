@@ -1,0 +1,78 @@
+﻿<UserControl x:Class="VxShutdownTimer.GUI.ShutdownTimer.ShutdownTimerView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:VxShutdownTimer.GUI.ShutdownTimer"
+             xmlns:controls="http://metro.mahapps.com/winfx/xaml/controls"
+             mc:Ignorable="d" 
+             d:DesignHeight="400" d:DesignWidth="400">
+    <UserControl.DataContext>
+        <local:ShutdownTimerViewModel Info="ShutdownTimerViewModel_Info" Error="ShutdownTimerViewModel_Error" Tick="ShutdownTimerViewModel_Tick"/>
+    </UserControl.DataContext>
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="auto"/>
+            <RowDefinition/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="auto"/>
+        </Grid.RowDefinitions>
+        <Grid Margin="5">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="auto"/>
+                <ColumnDefinition Width="auto"/>
+            </Grid.ColumnDefinitions>
+            <TextBlock Text="Direct Command:" VerticalAlignment="Center"
+                       Margin="10,5,5,5" Foreground="White" FontFamily="Sans Serif"/>
+            <controls:SplitButton SelectedIndex="0" Grid.Column="1"
+                                  Margin="5"
+                                  Command="{Binding ImmediateStartCommand}"
+                                  CommandParameter="{Binding RelativeSource={RelativeSource Self},Path=SelectedItem.ShutdownType}"
+                                  ItemsSource="{Binding ShutdownSelectionCollection}"
+                                  Width="130" Height="40" BorderBrush="Red" BorderThickness="1.3">
+                
+                <controls:SplitButton.ItemTemplate>
+                    <DataTemplate>
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="auto"/>
+                                <ColumnDefinition/>
+                            </Grid.ColumnDefinitions>
+                            <Image Source="{Binding ImageLocation}" Width="27" Height="27" Margin="1,1,5,1" />
+                            <TextBlock Text="{Binding ShutdownType}" VerticalAlignment="Center" HorizontalAlignment="Left"
+                                       Margin="1" Grid.Column="1"/>
+                        </Grid>
+                    </DataTemplate>
+                </controls:SplitButton.ItemTemplate>
+            </controls:SplitButton>
+        </Grid>
+        <Border Grid.Row="1" BorderBrush="Red" BorderThickness="1.5" Margin="5">
+            <TextBlock Name="TextTimer" Text="00:00:00" FontSize="80" Style="{StaticResource DigitalFont}"
+                       HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="White"/>
+        </Border>
+        <GroupBox Header="Edit Timer" Grid.Row="2" Margin="5" FontFamily="Sans Serif">
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" IsEnabled="{Binding IsEnabled}">
+                <controls:NumericUpDown Name="NumUpDownHour" Value="0" ValueChanged="NumUpDownHour_ValueChanged" Minimum="0" Maximum="23" Margin="2" Interval="1" Width="80" FontSize="17" BorderBrush="Red" BorderThickness="1.3"/>
+                <controls:NumericUpDown Name="NumUpDownMin" Value="0" ValueChanged="NumUpDownMin_ValueChanged" Minimum="0" Maximum="59" Margin="2" Interval="1" Width="80" FontSize="17" BorderBrush="Red" BorderThickness="1.3"/>
+                <controls:NumericUpDown Name="NumUpDownSec" Value="0" ValueChanged="NumUpDownSec_ValueChanged" Minimum="0" Maximum="59" Margin="2" Interval="1" Width="80" FontSize="17" BorderBrush="Red" BorderThickness="1.3"/>
+            </StackPanel>
+        </GroupBox>
+        <GroupBox Header="Shutdown Type" Grid.Row="3" Margin="5" FontFamily="Sans Serif">
+            <DockPanel >
+                <Button Command="{Binding CancelCommand}" Height="64" Width="64" Margin="5" controls:ButtonHelper.CornerRadius="50" Cursor="Hand" 
+                    ToolTip="Cancel Operation" BorderBrush="Red" BorderThickness="1.4" DockPanel.Dock="Right">
+                    <Image Source="/Contents/cancel.png"/>
+                </Button>
+                <Button Command="{Binding StartCommand}" CommandParameter="{Binding ElementName=ComboShutdownType,Path=SelectedItem.ShutdownType}"
+                    Height="64" Width="64" Margin="5" controls:ButtonHelper.CornerRadius="50" Cursor="Hand" ToolTip="Start Operation"
+                    BorderBrush="Red" BorderThickness="1.4" DockPanel.Dock="Right">
+                    <Image Source="{Binding ElementName=ComboShutdownType,Path=SelectionBoxItem.ImageLocation}"/>
+                </Button>
+                <ComboBox  BorderBrush="Red" BorderThickness="1.3" ItemsSource="{Binding ShutdownSelectionCollection}" DisplayMemberPath="ShutdownType" 
+                          Name="ComboShutdownType" Margin="15,5,15,5" SelectedIndex="0" Height="30" DockPanel.Dock="Left" IsEnabled="{Binding IsEnabled}"/>
+
+            </DockPanel>
+
+        </GroupBox>
+    </Grid>
+</UserControl>

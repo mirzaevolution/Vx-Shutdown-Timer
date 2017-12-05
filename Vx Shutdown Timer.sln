@@ -1,0 +1,43 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.26730.16
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CoreLib", "CoreLib\CoreLib.csproj", "{289EBDBC-3DB2-4E8D-A09C-CC660F835BE6}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VxShutdownTimerService", "VxShutdownTimerService\VxShutdownTimerService.csproj", "{031314ED-D01F-4B0E-8248-914BBA162073}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ShutdownLib", "ShutdownLib\ShutdownLib.csproj", "{77E72C54-CE87-40A4-AF4F-B9F382364C79}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VxShutdownTimer.GUI", "VxShutdownTimer.GUI\VxShutdownTimer.GUI.csproj", "{330BB8B8-C513-48D3-95C2-6261504C87E8}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{289EBDBC-3DB2-4E8D-A09C-CC660F835BE6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{289EBDBC-3DB2-4E8D-A09C-CC660F835BE6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{289EBDBC-3DB2-4E8D-A09C-CC660F835BE6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{289EBDBC-3DB2-4E8D-A09C-CC660F835BE6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{031314ED-D01F-4B0E-8248-914BBA162073}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{031314ED-D01F-4B0E-8248-914BBA162073}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{031314ED-D01F-4B0E-8248-914BBA162073}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{031314ED-D01F-4B0E-8248-914BBA162073}.Release|Any CPU.Build.0 = Release|Any CPU
+		{77E72C54-CE87-40A4-AF4F-B9F382364C79}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{77E72C54-CE87-40A4-AF4F-B9F382364C79}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{77E72C54-CE87-40A4-AF4F-B9F382364C79}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{77E72C54-CE87-40A4-AF4F-B9F382364C79}.Release|Any CPU.Build.0 = Release|Any CPU
+		{330BB8B8-C513-48D3-95C2-6261504C87E8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{330BB8B8-C513-48D3-95C2-6261504C87E8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{330BB8B8-C513-48D3-95C2-6261504C87E8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{330BB8B8-C513-48D3-95C2-6261504C87E8}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {100D844F-E434-43DA-8C4B-3F04503BA4C6}
+	EndGlobalSection
+EndGlobal
