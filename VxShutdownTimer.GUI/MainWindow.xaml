@@ -3,21 +3,69 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:sys="clr-namespace:System;assembly=mscorlib"
         xmlns:local="clr-namespace:VxShutdownTimer.GUI"
         xmlns:timer="clr-namespace:VxShutdownTimer.GUI.ShutdownTimer"
         xmlns:list="clr-namespace:VxShutdownTimer.GUI.ShutdownList"
         xmlns:schedule="clr-namespace:VxShutdownTimer.GUI.ShutdownSchedule"
         xmlns:runner="clr-namespace:VxShutdownTimer.GUI.ServiceRunner"
         xmlns:controls="http://metro.mahapps.com/winfx/xaml/controls"
+        xmlns:info="http://www.hardcodet.net/taskbar"
         mc:Ignorable="d" Icon="/Contents/hibernate.ico"
         BorderBrush="Red" WindowStartupLocation="CenterScreen"
-        Title="Vx Shutdown Timer" Height="500" Width="425" MinWidth="400" MinHeight="450">
+        Title="Vx Shutdown Timer" Height="500" Width="500" MinWidth="450" MinHeight="500">
     <controls:MetroWindow.Resources>
         <timer:ShutdownTimerView x:Key="TimerView"/>
         <schedule:ShutdownScheduleView x:Key="ScheduleView"/>
         <runner:ServiceRunnerView x:Key="RunnerView"/>
         <list:ShutdownListView x:Key="ListView"/>
+        <local:ViewConverter x:Key="ViewConverter"/>
     </controls:MetroWindow.Resources>
+    <controls:MetroWindow.LeftWindowCommands>
+        <controls:WindowCommands>
+            <Button Name="ButtonHelp" Click="ButtonHelp_Click" Cursor="Hand" ToolTip="Help">
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="auto"/>
+                    </Grid.ColumnDefinitions>
+                    <Image Margin="2,2,3,2" Height="20" Width="20">
+                        <Image.Source>
+                            <BitmapImage UriSource="/Contents/help.ico" DecodePixelHeight="30" DecodePixelWidth="30"/>
+                        </Image.Source>
+                    </Image>
+                </Grid>
+            </Button>    
+        </controls:WindowCommands>
+    </controls:MetroWindow.LeftWindowCommands>
+    <controls:MetroWindow.RightWindowCommands>
+        <controls:WindowCommands>
+        
+            <Button Name="ButtonAbout" Click="ButtonAbout_Click" Cursor="Hand" ToolTip="About">
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="auto"/>
+                    </Grid.ColumnDefinitions>
+                    <Image Margin="2,2,3,2" Height="20" Width="20">
+                        <Image.Source>
+                            <BitmapImage UriSource="/Contents/info.ico" DecodePixelHeight="30" DecodePixelWidth="30"/>
+                        </Image.Source>
+                    </Image>
+                </Grid>
+            </Button>
+            <Button Name="ButtonTray" Click="ButtonTray_Click" Cursor="Hand" ToolTip="Goto Taskbar Tray">
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="auto"/>
+                    </Grid.ColumnDefinitions>
+                    <Image Margin="2,2,3,2" Height="20" Width="20">
+                        <Image.Source>
+                            <BitmapImage UriSource="/Contents/tray.ico" DecodePixelHeight="30" DecodePixelWidth="30"/>
+                        </Image.Source>
+                    </Image>
+                </Grid>
+            </Button>
+        </controls:WindowCommands>
+    </controls:MetroWindow.RightWindowCommands>
     <controls:MetroTabControl controls:TabControlHelper.IsUnderlined="True" 
                               controls:TabControlHelper.Underlined="TabPanel"
                               controls:TabControlHelper.UnderlineSelectedBrush="LightBlue"
@@ -31,9 +79,60 @@
         <controls:MetroTabItem Header="List" Style="{StaticResource DigitalFont}">
             <controls:MetroContentControl Content="{StaticResource ListView}" TransitionsEnabled="True"/>
         </controls:MetroTabItem>
-
         <controls:MetroTabItem Header="Service" Style="{StaticResource DigitalFont}">
             <controls:MetroContentControl Content="{StaticResource RunnerView}" TransitionsEnabled="True"/>
         </controls:MetroTabItem>
+        <controls:MetroTabItem Header="Trigger" Style="{StaticResource DigitalFont}">
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition/>
+                </Grid.RowDefinitions>
+                <GroupBox TextElement.FontFamily="Sans Serif" Header="Select Trigger" Margin="5" BorderBrush="Red" BorderThickness="1.4" FontSize="16">
+                    <ComboBox Margin="10" BorderBrush="Red" BorderThickness="1.4" Name="ComboBoxTrigger" SelectedIndex="0" FontSize="15" Height="35" Cursor="Hand">
+                        <sys:String>Triggered by Internet Connectivity</sys:String>
+                        <sys:String>Triggered by Battery Percent Changes</sys:String>
+                        <sys:String>Triggered by Day Changes</sys:String>
+                        <sys:String>Triggered by Directory Changes</sys:String>
+                        <sys:String>Triggered by File Changes</sys:String>
+                        <sys:String>Triggered by Process</sys:String>
+                        <sys:String>Triggered by Timezone Changes</sys:String>
+                    </ComboBox>
+                </GroupBox>
+                <controls:MetroContentControl TextElement.FontFamily="Sans Serif" Grid.Row="1" Content="{Binding ElementName=ComboBoxTrigger,Path=SelectedItem,Converter={StaticResource ViewConverter}}" TransitionsEnabled="True"/>
+            </Grid>
+        </controls:MetroTabItem>
+        <info:TaskbarIcon Name="TrayIconInfo" IconSource="/Contents/hibernate.ico"
+                          ToolTipText="Vx Shutdown Timer" PopupActivation="All" Visibility="Collapsed">
+            <info:TaskbarIcon.TrayPopup>
+                <Border BorderBrush="Red" BorderThickness="1.4" Background="#191919">
+                    <Grid Margin="2">
+
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="auto"/>
+                            <RowDefinition Height="auto"/>
+                        </Grid.RowDefinitions>
+                        
+                        <Button Name="ButtonShowWindow" Click="ButtonShowWindow_Click" ToolTip="Show App" Cursor="Hand"
+                                Background="Transparent" Margin="2" controls:ButtonHelper.CornerRadius="50"  BorderBrush="Red" BorderThickness="1.4" Width="50" Height="50">
+                            <Image Margin="2">
+                                <Image.Source>
+                                    <BitmapImage UriSource="/Contents/hibernate.ico" DecodePixelHeight="60" DecodePixelWidth="60"/>
+                                </Image.Source>
+                            </Image>
+                        </Button>
+                        <Button Name="ButtonExitWindow" Click="ButtonExitWindow_Click" ToolTip="Exit" Cursor="Hand"
+                                Background="Transparent" Margin="2" controls:ButtonHelper.CornerRadius="50"  BorderBrush="Red" BorderThickness="1.4"  Grid.Row="1" Width="50" Height="50">
+                            <Image Margin="2">
+                                <Image.Source>
+                                    <BitmapImage UriSource="/Contents/exit.ico" DecodePixelHeight="60" DecodePixelWidth="60"/>
+                                </Image.Source>
+                            </Image>
+                        </Button>
+                    </Grid>
+                </Border>
+            </info:TaskbarIcon.TrayPopup>
+        </info:TaskbarIcon>
     </controls:MetroTabControl>
+    
 </controls:MetroWindow>

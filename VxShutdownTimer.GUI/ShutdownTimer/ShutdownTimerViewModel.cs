@@ -137,10 +137,7 @@ namespace VxShutdownTimer.GUI.ShutdownTimer
             if((now.Seconds == 0) && (now.Minutes == 0) && (now.Hours == 0))
             {
                 ProcessCommand(_selectedShutdownType);
-                //normally, these lines of code is useless.
-                //i just use this as fallback when ProcessCommand throws an exception
-                IsRunning = false; IsEnabled = true;
-                _timer.Stop();
+                OnCancel();
             }
             
         }
@@ -157,7 +154,7 @@ namespace VxShutdownTimer.GUI.ShutdownTimer
                         break;
                     case "Hibernate":
                         Console.WriteLine("Hibernate");
-                        ShutdownInvoker.SetSuspendState(true, true, true);
+                        //ShutdownInvoker.SetSuspendState(true, true, true);
                         break;
                     case "Restart":
                         Console.WriteLine("Restart");
@@ -165,7 +162,7 @@ namespace VxShutdownTimer.GUI.ShutdownTimer
                         break;
                     case "Sleep":
                         Console.WriteLine("Sleep");
-                        ShutdownInvoker.SetSuspendState(false, true, true);
+                        //ShutdownInvoker.SetSuspendState(false, true, true);
                         break;
                     case "Log Off":
                         Console.WriteLine("Log Off");

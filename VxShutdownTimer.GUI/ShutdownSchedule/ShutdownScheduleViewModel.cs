@@ -158,6 +158,7 @@ namespace VxShutdownTimer.GUI.ShutdownSchedule
                         //ShutdownInvoker.LockWorkStation();
                         break;
                 }
+                
             }
             catch (Exception ex)
             {

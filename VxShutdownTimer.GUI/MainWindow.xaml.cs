@@ -1,29 +1,51 @@
 ﻿using MahApps.Metro.Controls;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
-
+using MahApps.Metro.Controls.Dialogs;
 namespace VxShutdownTimer.GUI
 {
-    /// <summary>
-    /// Interaction logic for MainWindow.xaml
-    /// </summary>
+
     public partial class MainWindow : MetroWindow
     {
         public MainWindow()
         {
             InitializeComponent();
+        }
+
+        private void ButtonHelp_Click(object sender, System.Windows.RoutedEventArgs e)
+        {
+
+        }
+
+        private void ButtonTray_Click(object sender, System.Windows.RoutedEventArgs e)
+        {
+            TrayIconInfo.Visibility = System.Windows.Visibility.Visible;
+            Hide();
+        }
+
+        private void ButtonAbout_Click(object sender, System.Windows.RoutedEventArgs e)
+        {
+
+        }
+
+        private void ButtonShowWindow_Click(object sender, System.Windows.RoutedEventArgs e)
+        {
+            TrayIconInfo.Visibility = System.Windows.Visibility.Collapsed;
+            Show();
+        }
+
+        private async void ButtonExitWindow_Click(object sender, System.Windows.RoutedEventArgs e)
+        {
+            TrayIconInfo.Visibility = System.Windows.Visibility.Collapsed;
+            Show();
+            if (await this.ShowMessageAsync("Exit","Are you sure want to exit?",MessageDialogStyle.AffirmativeAndNegative,new MetroDialogSettings
+            {
+                AffirmativeButtonText = "Yes",
+                NegativeButtonText = "No",
+                ColorScheme = MetroDialogColorScheme.Inverted
+            }) == MessageDialogResult.Affirmative)
+            {
+              
+                App.Current.Shutdown();
+            }
         }
     }
 }

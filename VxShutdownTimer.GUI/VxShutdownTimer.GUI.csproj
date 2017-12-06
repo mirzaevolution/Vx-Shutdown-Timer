@@ -8,11 +8,12 @@
     <OutputType>WinExe</OutputType>
     <RootNamespace>VxShutdownTimer.GUI</RootNamespace>
     <AssemblyName>VxShutdownTimer.GUI</AssemblyName>
-    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <ProjectTypeGuids>{60dc8134-eba5-43b8-bcc9-bb4bc16c2548};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
     <WarningLevel>4</WarningLevel>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -49,6 +50,7 @@
     <Reference Include="Microsoft.Expression.Interactions, Version=4.5.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
     <Reference Include="System" />
     <Reference Include="System.Data" />
+    <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Windows.Interactivity, Version=4.5.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\MahApps.Metro.1.5.0\lib\net45\System.Windows.Interactivity.dll</HintPath>
       <Private>True</Private>
@@ -94,6 +96,36 @@
       <DependentUpon>ShutdownTimerView.xaml</DependentUpon>
     </Compile>
     <Compile Include="ShutdownTimer\ShutdownTimerViewModel.cs" />
+    <Compile Include="Triggers\BatteryPercentTrigger\BatteryPercentView.xaml.cs">
+      <DependentUpon>BatteryPercentView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Triggers\BatteryPercentTrigger\BatteryPercentViewModel.cs" />
+    <Compile Include="Triggers\DayTrigger\DayView.xaml.cs">
+      <DependentUpon>DayView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Triggers\DayTrigger\DayViewModel.cs" />
+    <Compile Include="Triggers\DirectoryTrigger\DirectoryView.xaml.cs">
+      <DependentUpon>DirectoryView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Triggers\DirectoryTrigger\DirectoryViewModel.cs" />
+    <Compile Include="Triggers\FileTrigger\FileView.xaml.cs">
+      <DependentUpon>FileView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Triggers\FileTrigger\FileViewModel.cs" />
+    <Compile Include="Triggers\NetConnectivityTrigger\NetConnectivityView.xaml.cs">
+      <DependentUpon>NetConnectivityView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Triggers\NetConnectivityTrigger\NetConnectivityViewModel.cs" />
+    <Compile Include="Triggers\ProcessTrigger\ProcessView.xaml.cs">
+      <DependentUpon>ProcessView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Triggers\ProcessTrigger\ProcessViewModel.cs" />
+    <Compile Include="Triggers\TimeZoneTrigger\TimeZoneView.xaml.cs">
+      <DependentUpon>TimeZoneView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Triggers\TimeZoneTrigger\TimeZoneViewModel.cs" />
+    <Compile Include="ViewConverter.cs" />
+    <Compile Include="ViewFactory.cs" />
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -119,6 +151,34 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="ShutdownTimer\ShutdownTimerView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Triggers\BatteryPercentTrigger\BatteryPercentView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Triggers\DayTrigger\DayView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Triggers\DirectoryTrigger\DirectoryView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Triggers\FileTrigger\FileView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Triggers\NetConnectivityTrigger\NetConnectivityView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Triggers\ProcessTrigger\ProcessView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Triggers\TimeZoneTrigger\TimeZoneView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -153,6 +213,10 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\ConnectivityLib\ConnectivityLib.csproj">
+      <Project>{794ce312-cd29-40ad-940b-38dbf9b7e2f3}</Project>
+      <Name>ConnectivityLib</Name>
+    </ProjectReference>
     <ProjectReference Include="..\CoreLib\CoreLib.csproj">
       <Project>{289ebdbc-3db2-4e8d-a09c-cc660f835be6}</Project>
       <Name>CoreLib</Name>
@@ -166,7 +230,6 @@
     <Folder Include="About\" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Contents\cancel.png" />
     <Resource Include="Contents\close.png" />
     <Resource Include="Contents\hibernate.png" />
     <Resource Include="Contents\info.png" />
@@ -197,6 +260,21 @@
     <Resource Include="Contents\ico-status-paused.png" />
     <Resource Include="Contents\ico-status-running.png" />
     <Resource Include="Contents\ico-status-stopped.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Contents\monitor.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Contents\cancel.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Contents\help.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Contents\tray.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Contents\exit.ico" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

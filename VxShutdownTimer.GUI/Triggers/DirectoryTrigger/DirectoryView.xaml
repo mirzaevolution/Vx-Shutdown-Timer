@@ -1,0 +1,65 @@
+﻿<UserControl x:Class="VxShutdownTimer.GUI.Triggers.DirectoryTrigger.DirectoryView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:VxShutdownTimer.GUI.Triggers.DirectoryTrigger"
+              xmlns:controls="http://metro.mahapps.com/winfx/xaml/controls"
+             xmlns:sys="clr-namespace:System;assembly=mscorlib"
+             mc:Ignorable="d" 
+             d:DesignHeight="400" d:DesignWidth="400">
+    <UserControl.DataContext>
+        <local:DirectoryViewModel Info="DirectoryViewModel_Info" Error="DirectoryViewModel_Error"/>
+    </UserControl.DataContext>
+    <Grid Margin="10">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="auto"/>
+        </Grid.RowDefinitions>
+        <TextBlock Text="Directory Trigger" Style="{StaticResource DigitalFont}" FontSize="30" Foreground="#FF9595FF" Margin="5"/>
+        <TextBlock Text="Trigger the selected operation when the monitored directory is changed" FontSize="13" Grid.Row="1" TextWrapping="Wrap" Foreground="#FFFD4E4E" Margin="5"
+                   FontStyle="Italic"/>
+
+        <Grid Grid.Row="2">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="auto"/>
+                <ColumnDefinition Width="auto"/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="auto"/>
+            </Grid.RowDefinitions>
+            <TextBlock Text="Operation Type: " Margin="5" VerticalAlignment="Center" Foreground="White" DockPanel.Dock="Left"/>
+            <ComboBox Grid.Column="1" SelectedItem="{Binding ShutdownType,UpdateSourceTrigger=PropertyChanged,NotifyOnSourceUpdated=True,NotifyOnTargetUpdated=True}" IsEnabled="{Binding IsEnabled,UpdateSourceTrigger=PropertyChanged,NotifyOnSourceUpdated=True,NotifyOnTargetUpdated=True}" SelectedIndex="0" Margin="5" BorderBrush="Red" BorderThickness="1.3">
+                <sys:String>Shutdown</sys:String>
+                <sys:String>Hibernate</sys:String>
+                <sys:String>Restart</sys:String>
+                <sys:String>Sleep</sys:String>
+                <sys:String>Log Off</sys:String>
+                <sys:String>Lock</sys:String>
+            </ComboBox>
+        </Grid>
+
+        <DockPanel Grid.Row="3">
+            <Button Content="Browse" BorderBrush="Red" BorderThickness="1.3" Command="{Binding BrowseCommand}" Margin="5" DockPanel.Dock="Right"/>
+            <TextBox BorderBrush="Red" BorderThickness="1.3" IsReadOnly="True" Text="{Binding DirectoryLocation,UpdateSourceTrigger=PropertyChanged,NotifyOnSourceUpdated=True,NotifyOnTargetUpdated=True}"
+                     Margin="5" controls:TextBoxHelper.Watermark="Target directory to monitor"/>
+        </DockPanel>
+        <StackPanel Orientation="Horizontal" Grid.Row="4" Margin="20">
+            <Button Command="{Binding StartCommand}" Height="90" Width="90" Margin="5" controls:ButtonHelper.CornerRadius="50" Cursor="Hand" ToolTip="Start Monitoring"
+                    Background="Transparent" BorderBrush="Transparent" DockPanel.Dock="Right">
+                <Image Stretch="Fill">
+                    <Image.Source>
+                        <BitmapImage UriSource="/Contents/monitor.png" DecodePixelHeight="100" DecodePixelWidth="100"/>
+                    </Image.Source>
+                </Image>
+            </Button>
+            <Button Command="{Binding CancelCommand}" Height="90" Width="90" Margin="5" controls:ButtonHelper.CornerRadius="50" Cursor="Hand" 
+                    ToolTip="Stop Monitoring" Background="Transparent" BorderBrush="Transparent" DockPanel.Dock="Right">
+                <Image Source="/Contents/cancel.png" Stretch="Fill"/>
+            </Button>
+        </StackPanel>
+    </Grid>
+</UserControl>

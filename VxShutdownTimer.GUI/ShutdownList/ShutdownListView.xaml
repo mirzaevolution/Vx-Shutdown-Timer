@@ -28,7 +28,7 @@
             <RowDefinition/>
             <RowDefinition Height="auto"/>
         </Grid.RowDefinitions>
-        <GroupBox Header="Edit Schedule Item" BorderBrush="Red" BorderThickness="1.3" Margin="3"
+        <GroupBox Header="Edit Schedule Item" BorderBrush="Red" BorderThickness="1.3" Margin="5"
                   IsEnabled="{Binding CanEditFields}">
             <Grid DataContext="{Binding SelectedModel}">
                 <Grid.RowDefinitions>
@@ -69,14 +69,14 @@
         </GroupBox>
         <GroupBox Grid.Row="1" Header="Command" Margin="5" BorderBrush="Red" BorderThickness="1.3">
             <WrapPanel>
-                <Button Command="{Binding AddCommand}" Content="Add" Margin="5" Height="30" Width="65"  BorderBrush="Red" BorderThickness="1.5" Cursor="Hand"/>
-                <Button Command="{Binding EditCommand}" Content="Edit" Margin="5" Height="30" Width="65" BorderBrush="Red" BorderThickness="1.5" Cursor="Hand"/>
-                <Button Command="{Binding RemoveCommand}" Content="Remove" Margin="5" Height="30" Width="65" BorderBrush="Red" BorderThickness="1.5" Cursor="Hand"/>
-                <Button Command="{Binding SaveCommand}" Content="Save" Margin="5" Height="30" Width="65" BorderBrush="Red" BorderThickness="1.5" Cursor="Hand"/>
-                <Button Command="{Binding CancelCommand}" Content="Cancel" Margin="5" Height="30" Width="65" BorderBrush="Red" BorderThickness="1.5" Cursor="Hand"/>
+                <Button Command="{Binding AddCommand,NotifyOnTargetUpdated=True,NotifyOnSourceUpdated=True}" Content="Add" Margin="5" Height="30" Width="65"  BorderBrush="Red" BorderThickness="1.5" Cursor="Hand"/>
+                <Button Command="{Binding EditCommand,NotifyOnTargetUpdated=True,NotifyOnSourceUpdated=True}" Content="Edit" Margin="5" Height="30" Width="65" BorderBrush="Red" BorderThickness="1.5" Cursor="Hand"/>
+                <Button Command="{Binding RemoveCommand,NotifyOnTargetUpdated=True,NotifyOnSourceUpdated=True}" Content="Remove" Margin="5" Height="30" Width="65" BorderBrush="Red" BorderThickness="1.5" Cursor="Hand"/>
+                <Button Command="{Binding SaveCommand,NotifyOnTargetUpdated=True,NotifyOnSourceUpdated=True}" Content="Save" Margin="5" Height="30" Width="65" BorderBrush="Red" BorderThickness="1.5" Cursor="Hand"/>
+                <Button Command="{Binding CancelCommand, NotifyOnTargetUpdated=True,NotifyOnSourceUpdated=True}" Content="Cancel" Margin="5" Height="30" Width="65" BorderBrush="Red" BorderThickness="1.5" Cursor="Hand"/>
             </WrapPanel>
         </GroupBox>
-        <DataGrid Margin="10,5,10,5" Grid.Row="2" ItemsSource="{Binding ShutdownModelCollection}"
+        <DataGrid Margin="5" Grid.Row="2" ItemsSource="{Binding ShutdownModelCollection}"
                   SelectedItem="{Binding SelectedModel}" AutoGenerateColumns="False" IsSynchronizedWithCurrentItem="True"
                   CanUserAddRows="False" CanUserDeleteRows="False" IsEnabled="{Binding CanUseDatagrid}"
                   BorderBrush="Red" BorderThickness="1.3" Style="{StaticResource AzureDataGrid}">

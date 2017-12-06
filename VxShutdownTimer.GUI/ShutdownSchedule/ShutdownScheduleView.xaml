@@ -56,12 +56,12 @@
         <GroupBox Header="Shutdown Type" Grid.Row="3" Margin="5" FontFamily="Sans Serif">
             <DockPanel >
                 <Button Command="{Binding CancelCommand}" Height="64" Width="64" Margin="5" controls:ButtonHelper.CornerRadius="50" Cursor="Hand" 
-                    ToolTip="Cancel Operation" BorderBrush="Red" BorderThickness="1.4" DockPanel.Dock="Right">
+                    ToolTip="Cancel Operation" Background="Transparent" BorderBrush="Transparent" DockPanel.Dock="Right">
                     <Image Source="/Contents/cancel.png"/>
                 </Button>
-                <Button Command="{Binding StartCommand}" CommandParameter="{Binding ElementName=ComboShutdownType,Path=SelectedItem.ShutdownType}"
+                <Button Command="{Binding StartCommand,NotifyOnTargetUpdated=True,NotifyOnSourceUpdated=True}" CommandParameter="{Binding ElementName=ComboShutdownType,Path=SelectedItem.ShutdownType}"
                     Height="64" Width="64" Margin="5" controls:ButtonHelper.CornerRadius="50" Cursor="Hand" ToolTip="Start Operation"
-                    BorderBrush="Red" BorderThickness="1.4" DockPanel.Dock="Right">
+                   Background="Transparent" BorderBrush="Transparent" DockPanel.Dock="Right">
                     <Image Source="{Binding ElementName=ComboShutdownType,Path=SelectionBoxItem.ImageLocation}"/>
                 </Button>
                 <ComboBox  BorderBrush="Red" BorderThickness="1.3" ItemsSource="{Binding ShutdownSelectionCollection}" DisplayMemberPath="ShutdownType" 
