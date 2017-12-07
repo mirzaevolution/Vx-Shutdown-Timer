@@ -37,11 +37,11 @@ Not only timer or schedule based operation, this software also supports direct c
 
 For more information about this software, you can view our documentation here:
 
-### [VX Shutdown Timer Documentation](https://drive.google.com/file/d/1p_Ji-q54Ehc6xJIFX9MDQAxqcqGXNHrt/view?usp=sharing)
+### [VX Shutdown Timer Documentation](https://drive.google.com/file/d/1ix4_dhaj40F0T4DUmLNDBK7fD9jCz-Dz/view?usp=sharing)
 
 To download this setup for this software, you can download here:
 
-### [DOWNLOAD](https://drive.google.com/file/d/16SD3OtKKJOXTuDzgJrDn_R16EJ8kRJ1r/view?usp=sharing)
+### [DOWNLOAD](https://drive.google.com/file/d/1M-hkLoM4R8AeoQnh-67RCmZAinUoNhbJ/view?usp=sharing)
 
 
 Copyright (c) 2017 [Mirza Ghulam Rasyid](https://twitter.com/mirzaevolution)
