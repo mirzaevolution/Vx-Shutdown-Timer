@@ -35,6 +35,7 @@ namespace VxShutdownTimer.GUI
         private void ButtonTray_Click(object sender, System.Windows.RoutedEventArgs e)
         {
             TrayIconInfo.Visibility = System.Windows.Visibility.Visible;
+            TrayIconInfo.ShowBalloonTip("VX Shutdown Timer", "Click here to show/exit the app.",Hardcodet.Wpf.TaskbarNotification.BalloonIcon.Info);
             Hide();
         }
 

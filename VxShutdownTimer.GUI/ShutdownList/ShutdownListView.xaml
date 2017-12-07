@@ -55,7 +55,6 @@
                     <sys:String>Restart</sys:String>
                     <sys:String>Sleep</sys:String>
                     <sys:String>Log Off</sys:String>
-                    <sys:String>Lock</sys:String>
                 </ComboBox>
 
                 <ComboBox Grid.Column="1" Grid.Row="2" SelectedItem="{Binding Repetition, Converter={StaticResource RepetitionConverter}, UpdateSourceTrigger=PropertyChanged}"
@@ -89,8 +88,9 @@
         </DataGrid>
         <StatusBar Grid.Row="3" Background="#FF235AFF" Foreground="White" Height="33">
             <Image x:Name="ImageNotification"/>
-            <TextBlock x:Name="TextStatus" FontSize="12" Height="20"
-                       TextWrapping="WrapWithOverflow">
+            <TextBlock x:Name="TextStatus" FontSize="12" Height="19"
+                       TextWrapping="Wrap" TextTrimming="CharacterEllipsis">
+                
             </TextBlock>
         </StatusBar>
     </Grid>

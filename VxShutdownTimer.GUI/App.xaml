@@ -6,7 +6,7 @@
     <Application.Resources>
         <ResourceDictionary>
             <Style x:Key="DigitalFont">
-                <Setter Property="TextElement.FontFamily" Value="#Digital-7"/>
+                <Setter Property="TextElement.FontFamily" Value="pack://application:,,,/#Digital-7"/>
             </Style>
             <ResourceDictionary.MergedDictionaries>
                 <ResourceDictionary Source="pack://application:,,,/MahApps.Metro;component/Styles/Controls.xaml" />
@@ -14,7 +14,6 @@
                 <ResourceDictionary Source="pack://application:,,,/MahApps.Metro;component/Styles/Colors.xaml" />
                 <ResourceDictionary Source="pack://application:,,,/MahApps.Metro;component/Styles/Accents/Red.xaml" />
                 <ResourceDictionary Source="pack://application:,,,/MahApps.Metro;component/Styles/Accents/BaseDark.xaml" />
-                
             </ResourceDictionary.MergedDictionaries>
         </ResourceDictionary>
       

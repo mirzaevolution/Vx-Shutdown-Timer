@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Diagnostics;
 using System.ServiceProcess;
 using System.Threading.Tasks;
 using System.Timers;
@@ -16,8 +15,6 @@ namespace VxShutdownTimerService
         private Timer _timer;
         private bool _isTimerRunning;
         private List<ShutdownModel> _list;
-        private EventLog _eventLog;
-
         public VxShutdownTimerSvc()
         {
             InitializeComponent();
@@ -25,12 +22,22 @@ namespace VxShutdownTimerService
 
         }
 
+        private void LogError(string errorMessage)
+        {
+            try
+            {
+                if(File.Exists(Global.GetLogFileLocation()))
+                {
+
+                    File.AppendAllText(Global.GetLogFileLocation(), errorMessage + "\r\n\r\n");
+                }
+            }
+            catch { }
+        }
+
         private void LoadComponents()
         {
-            _eventLog = new EventLog("Application")
-            {
-                Source = "VxShutdownTimerSvc"
-            };
+          
             _timer = new Timer
             {
                 Interval = 1000
@@ -75,17 +82,17 @@ namespace VxShutdownTimerService
                         ShutdownInvoker.SetSuspendState(false, true, true);
                         break;
                     case ShutdownType.LogOff:
-                        ShutdownInvoker.ExitWindowsEx(0, 0);
-                        break;
-                    case ShutdownType.Lock:
-                        ShutdownInvoker.LockWorkStation();
+                        ShutdownInvoker.InvokeLogOffSvc();
                         break;
                     case ShutdownType.Restart:
                         ShutdownInvoker.InvokeRestart();
                         break;
                 }
             }
-            catch { }
+            catch(Exception ex)
+            {
+                LogError(ex.Message);
+            }
         }
         private void Check()
         {
@@ -145,7 +152,7 @@ namespace VxShutdownTimerService
             }
             catch (Exception ex)
             {
-                _eventLog.WriteEntry($"Error: {ex.Message}");
+                LogError($"---> {DateTime.Now} {ex.Message}");
             }
         }
         private void StartContinueService()
@@ -177,12 +184,12 @@ namespace VxShutdownTimerService
                 }
                 else
                 {
-                    _eventLog.WriteEntry("Error: Data file is not found", EventLogEntryType.Error);
+                    LogError($"---> {DateTime.Now} Error: Data file is not found");
                 }
             }
             catch(Exception ex)
             {
-                _eventLog.WriteEntry($"Error: {ex.Message}",EventLogEntryType.Error);
+                LogError($"---> {DateTime.Now} {ex.Message}");
             }
         }
         private void PauseStopService()
@@ -196,7 +203,7 @@ namespace VxShutdownTimerService
             }
             catch (Exception ex)
             {
-                _eventLog.WriteEntry($"Error: {ex.Message}", EventLogEntryType.Error);
+                LogError($"---> {DateTime.Now} {ex.Message}");
             }
         }
         

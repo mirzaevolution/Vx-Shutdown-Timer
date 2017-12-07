@@ -22,8 +22,6 @@ namespace VxShutdownTimer.GUI.ShutdownList
                         return "Sleep";
                     case ShutdownType.LogOff:
                         return "Log Off";
-                    case ShutdownType.Lock:
-                        return "Lock";
                     case ShutdownType.Restart:
                         return "Restart";
                 }
@@ -47,9 +45,6 @@ namespace VxShutdownTimer.GUI.ShutdownList
                     break;
                 case "Log Off":
                     shutdownType = ShutdownType.LogOff;
-                    break;
-                case "Lock":
-                    shutdownType = ShutdownType.Lock;
                     break;
             }
             return shutdownType;

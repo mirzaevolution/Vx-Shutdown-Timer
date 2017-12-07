@@ -14,7 +14,7 @@
         xmlns:info="http://www.hardcodet.net/taskbar"
         mc:Ignorable="d" Icon="/Contents/hibernate.ico"
         BorderBrush="Red" WindowStartupLocation="CenterScreen"
-        Title="Vx Shutdown Timer" Height="500" Width="500" MinWidth="450" MinHeight="500">
+        Title="Vx Shutdown Timer" Height="500" Width="540" MinWidth="500" MinHeight="500">
     <controls:MetroWindow.Resources>
         <timer:ShutdownTimerView x:Key="TimerView"/>
         <schedule:ShutdownScheduleView x:Key="ScheduleView"/>

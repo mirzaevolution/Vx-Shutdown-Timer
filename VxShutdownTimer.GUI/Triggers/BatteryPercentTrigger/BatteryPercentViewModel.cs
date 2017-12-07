@@ -140,17 +140,22 @@ namespace VxShutdownTimer.GUI.Triggers.BatteryPercentTrigger
             try
             {
                
-                if (System.Windows.Forms.SystemInformation.PowerStatus.BatteryLifeRemaining == -1)
+                if (System.Windows.Forms.SystemInformation.PowerStatus.BatteryChargeStatus == System.Windows.Forms.BatteryChargeStatus.NoSystemBattery)
                 {
+                    
                     OnErrorOccured("Error: `No battery detected`");
+                }
+                else if(System.Windows.Forms.SystemInformation.PowerStatus.BatteryChargeStatus == System.Windows.Forms.BatteryChargeStatus.Unknown)
+                {
+                    OnErrorOccured("Error while getting information about battery");
                 }
                 else
                 {
                     _timer.Interval = Second * 1000;
                     IsRunning = true;
                     IsEnabled = false;
-
                     _timer.Start();
+                    
                 }
             }
             catch (Exception ex)

@@ -145,7 +145,7 @@ namespace VxShutdownTimer.GUI.ShutdownList
                 catch (Exception ex)
                 {
                     success = false;
-                    error = $"An error occured. Message: {ex.Message}";
+                    error = $"An error occured. {ex.Message}";
                 }
             });
             //to avoid cross thread exception
@@ -198,14 +198,14 @@ namespace VxShutdownTimer.GUI.ShutdownList
                             if (!result.Success)
                             {
                                 success = false;
-                                error = $"Data {mode} successfully. But, service generated error.\n{result.ErrorMessage}";
+                                error = $"Data {mode} successfully. But, service generated error. {result.ErrorMessage}";
                             }
                         }
                     }
                     catch (Exception ex)
                     {
                         success = false;
-                        error = $"An error occured. Message: {ex.Message}";
+                        error = $"An error occured. {ex.Message}";
 
                     }
                 });

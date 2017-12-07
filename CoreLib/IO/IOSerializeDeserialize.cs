@@ -53,7 +53,15 @@ namespace CoreLib.IO
                     {
 
                         string json = File.ReadAllText(path);
-                        list = JsonConvert.DeserializeObject<List<ShutdownModel>>(json);
+                        if (!String.IsNullOrEmpty(json))
+                        {
+                            list = JsonConvert.DeserializeObject<List<ShutdownModel>>(json);
+                        }
+                        else
+                        {
+                            list = new List<ShutdownModel>();
+                        }
+                        
                     }
                     else
                     {

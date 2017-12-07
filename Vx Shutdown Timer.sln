@@ -13,6 +13,14 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VxShutdownTimer.GUI", "VxSh
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConnectivityLib", "ConnectivityLib\ConnectivityLib.csproj", "{794CE312-CD29-40AD-940B-38DBF9B7E2F3}"
 EndProject
+Project("{E729F059-12D4-455F-A2A4-FDA8DD25E08A}") = "VX Shutdown Timer", "..\Vx Shutdown Timer.Setup\VX Shutdown Timer\VX Shutdown Timer.isproj", "{6F1E191A-0536-4A7F-8F7E-779992E66D13}"
+	ProjectSection(ProjectDependencies) = postProject
+		{794CE312-CD29-40AD-940B-38DBF9B7E2F3} = {794CE312-CD29-40AD-940B-38DBF9B7E2F3}
+		{77E72C54-CE87-40A4-AF4F-B9F382364C79} = {77E72C54-CE87-40A4-AF4F-B9F382364C79}
+		{330BB8B8-C513-48D3-95C2-6261504C87E8} = {330BB8B8-C513-48D3-95C2-6261504C87E8}
+		{031314ED-D01F-4B0E-8248-914BBA162073} = {031314ED-D01F-4B0E-8248-914BBA162073}
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -39,6 +47,10 @@ Global
 		{794CE312-CD29-40AD-940B-38DBF9B7E2F3}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{794CE312-CD29-40AD-940B-38DBF9B7E2F3}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{794CE312-CD29-40AD-940B-38DBF9B7E2F3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6F1E191A-0536-4A7F-8F7E-779992E66D13}.Debug|Any CPU.ActiveCfg = Debug
+		{6F1E191A-0536-4A7F-8F7E-779992E66D13}.Debug|Any CPU.Build.0 = Debug
+		{6F1E191A-0536-4A7F-8F7E-779992E66D13}.Release|Any CPU.ActiveCfg = Release
+		{6F1E191A-0536-4A7F-8F7E-779992E66D13}.Release|Any CPU.Build.0 = Release
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
