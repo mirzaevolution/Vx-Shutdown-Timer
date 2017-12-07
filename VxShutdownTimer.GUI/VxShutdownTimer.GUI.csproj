@@ -73,15 +73,20 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="About\AboutView.xaml.cs">
+      <DependentUpon>AboutView.xaml</DependentUpon>
+    </Compile>
     <Compile Include="BindableBase.cs" />
     <Compile Include="EditableBindableBase.cs" />
+    <Compile Include="Home\Home.xaml.cs">
+      <DependentUpon>Home.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Models\ShutdownModelConverter.cs" />
     <Compile Include="Models\ShutdownModelEx.cs" />
     <Compile Include="RelayCommand.cs" />
     <Compile Include="ServiceRunner\ServiceRunnerView.xaml.cs">
       <DependentUpon>ServiceRunnerView.xaml</DependentUpon>
     </Compile>
-    <Compile Include="ServiceRunner\ServiceRunnerViewModel.cs" />
     <Compile Include="ShutdownList\RepetitionConverter.cs" />
     <Compile Include="ShutdownList\ShutdownListView.xaml.cs">
       <DependentUpon>ShutdownListView.xaml</DependentUpon>
@@ -126,6 +131,14 @@
     <Compile Include="Triggers\TimeZoneTrigger\TimeZoneViewModel.cs" />
     <Compile Include="ViewConverter.cs" />
     <Compile Include="ViewFactory.cs" />
+    <Page Include="About\AboutView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Home\Home.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -226,9 +239,7 @@
       <Name>ShutdownLib</Name>
     </ProjectReference>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="About\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <Resource Include="Contents\close.png" />
     <Resource Include="Contents\hibernate.png" />

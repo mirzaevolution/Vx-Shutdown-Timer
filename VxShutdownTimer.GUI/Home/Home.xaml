@@ -1,0 +1,31 @@
+﻿<UserControl x:Class="VxShutdownTimer.GUI.Home.Home"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:VxShutdownTimer.GUI.Home"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="450">
+    <Border BorderThickness="10" Background="#272727">
+        <Border.BorderBrush>
+            <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                <GradientStop Color="#FF4D0000" Offset="0.184"/>
+                <GradientStop Color="#FF4D0000" Offset="0.777"/>
+                <GradientStop Color="#FFDAD6D6" Offset="0.466"/>
+                <GradientStop Color="#FFDAD6D6" Offset="0.521"/>
+            </LinearGradientBrush>
+        </Border.BorderBrush>
+
+        <TextBlock HorizontalAlignment="Center"
+                   VerticalAlignment="Center" Margin="10" FontSize="35" Style="{StaticResource DigitalFont}">
+            <TextBlock.Foreground>
+                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                    <GradientStop Color="Red" Offset="0.398"/>
+                    <GradientStop Color="#FFECECEC" Offset="0.699"/>
+                </LinearGradientBrush>
+            </TextBlock.Foreground>
+            Shutdown <Run FontSize="200" BaselineAlignment="Center">VX</Run> Timer
+        </TextBlock>
+
+    </Border>
+</UserControl>

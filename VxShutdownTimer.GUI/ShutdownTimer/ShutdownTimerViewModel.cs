@@ -149,33 +149,28 @@ namespace VxShutdownTimer.GUI.ShutdownTimer
                 switch (shutdownType)
                 {
                     case "Shutdown":
-                        Console.WriteLine("Shutdown");
-                        //ShutdownInvoker.InvokeShutdown();
+                        ShutdownInvoker.InvokeShutdown();
                         break;
                     case "Hibernate":
-                        Console.WriteLine("Hibernate");
-                        //ShutdownInvoker.SetSuspendState(true, true, true);
+                        ShutdownInvoker.SetSuspendState(true, true, true);
                         break;
                     case "Restart":
-                        Console.WriteLine("Restart");
-                        //ShutdownInvoker.InvokeRestart();
+                        ShutdownInvoker.InvokeRestart();
                         break;
                     case "Sleep":
-                        Console.WriteLine("Sleep");
-                        //ShutdownInvoker.SetSuspendState(false, true, true);
+                        ShutdownInvoker.SetSuspendState(false, true, true);
                         break;
                     case "Log Off":
-                        Console.WriteLine("Log Off");
-                        //ShutdownInvoker.ExitWindowsEx(0, 0);
+                        ShutdownInvoker.ExitWindowsEx(0, 0);
                         break;
                     case "Lock":
-                        Console.WriteLine("Lock");
-                        //ShutdownInvoker.LockWorkStation();
+                        ShutdownInvoker.LockWorkStation();
                         break;
                 }
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
+                OnCancel();
                 OnErrorOccured(ex.Message);
             }
         }

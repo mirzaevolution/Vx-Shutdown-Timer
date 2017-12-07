@@ -18,8 +18,9 @@
             <RowDefinition Height="auto"/>
             <RowDefinition Height="auto"/>
         </Grid.RowDefinitions>
-        <TextBlock Text="Internet Connectivity Trigger" Style="{StaticResource DigitalFont}" FontSize="30" Foreground="#FF9595FF" Margin="5"/>
-        <TextBlock Text="Trigger the selected operation when internet connectivity changes" FontSize="13" Grid.Row="1" TextWrapping="Wrap" Foreground="#FFFD4E4E" Margin="5"
+        <TextBlock Text="Power Trigger" Style="{StaticResource DigitalFont}" FontSize="30" Foreground="#FF9595FF" Margin="5"/>
+        <TextBlock Text="Trigger the selected operation when the battery percentage is below the specified value
+" FontSize="13" Grid.Row="1" TextWrapping="Wrap" Foreground="#FFFD4E4E" Margin="5"
                    FontStyle="Italic"/>
 
         <Grid Grid.Row="2">

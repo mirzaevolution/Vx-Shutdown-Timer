@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Controls;
+﻿using System.Windows.Controls;
 using VxShutdownTimer.GUI.Triggers.BatteryPercentTrigger;
 using VxShutdownTimer.GUI.Triggers.DayTrigger;
 using VxShutdownTimer.GUI.Triggers.DirectoryTrigger;

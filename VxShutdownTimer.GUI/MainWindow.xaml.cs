@@ -1,5 +1,9 @@
 ﻿using MahApps.Metro.Controls;
 using MahApps.Metro.Controls.Dialogs;
+using System;
+using System.Diagnostics;
+using System.IO;
+
 namespace VxShutdownTimer.GUI
 {
 
@@ -12,7 +16,20 @@ namespace VxShutdownTimer.GUI
 
         private void ButtonHelp_Click(object sender, System.Windows.RoutedEventArgs e)
         {
-
+            string pdf = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "help.pdf");
+            if(File.Exists(pdf))
+            {
+                var process = new Process()
+                {
+                    StartInfo = new ProcessStartInfo("Explorer.exe", pdf)
+                };
+                process.Start();
+                
+            }
+            else
+            {
+                Process.Start("https://github.com/mirzaevolution/Vx-Shutdown-Timer");
+            }
         }
 
         private void ButtonTray_Click(object sender, System.Windows.RoutedEventArgs e)
@@ -24,6 +41,7 @@ namespace VxShutdownTimer.GUI
         private void ButtonAbout_Click(object sender, System.Windows.RoutedEventArgs e)
         {
 
+            new About.AboutView().ShowDialog();
         }
 
         private void ButtonShowWindow_Click(object sender, System.Windows.RoutedEventArgs e)

@@ -9,6 +9,7 @@
         xmlns:list="clr-namespace:VxShutdownTimer.GUI.ShutdownList"
         xmlns:schedule="clr-namespace:VxShutdownTimer.GUI.ShutdownSchedule"
         xmlns:runner="clr-namespace:VxShutdownTimer.GUI.ServiceRunner"
+        xmlns:home="clr-namespace:VxShutdownTimer.GUI.Home"
         xmlns:controls="http://metro.mahapps.com/winfx/xaml/controls"
         xmlns:info="http://www.hardcodet.net/taskbar"
         mc:Ignorable="d" Icon="/Contents/hibernate.ico"
@@ -20,6 +21,7 @@
         <runner:ServiceRunnerView x:Key="RunnerView"/>
         <list:ShutdownListView x:Key="ListView"/>
         <local:ViewConverter x:Key="ViewConverter"/>
+        <home:Home x:Key="HomeView"/>
     </controls:MetroWindow.Resources>
     <controls:MetroWindow.LeftWindowCommands>
         <controls:WindowCommands>
@@ -68,8 +70,10 @@
     </controls:MetroWindow.RightWindowCommands>
     <controls:MetroTabControl controls:TabControlHelper.IsUnderlined="True" 
                               controls:TabControlHelper.Underlined="TabPanel"
-                              controls:TabControlHelper.UnderlineSelectedBrush="LightBlue"
-                              >
+                              controls:TabControlHelper.UnderlineSelectedBrush="LightBlue">
+        <controls:MetroTabItem Header="Home"  Style="{StaticResource DigitalFont}">
+            <controls:MetroContentControl Content="{StaticResource HomeView}" ReverseTransition="True" TransitionsEnabled="True"/>
+        </controls:MetroTabItem>
         <controls:MetroTabItem Header="Timer" Style="{StaticResource DigitalFont}">
             <controls:MetroContentControl Content="{StaticResource TimerView}" TransitionsEnabled="True"/>
         </controls:MetroTabItem>
