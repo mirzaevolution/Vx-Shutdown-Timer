@@ -21,19 +21,19 @@ namespace VxShutdownTimer.GUI
         {
             switch (value.ToString())
             {
-                case "Triggered by Battery Percent Change":
+                case "Triggered by Battery Percent Changes":
                     if (_batteryPercentView == null)
                         _batteryPercentView = new BatteryPercentView();
                     return _batteryPercentView;
-                case "Triggered by Day Change":
+                case "Triggered by Day Changes":
                     if(_dayView == null)
                         _dayView = new DayView();
                     return _dayView;
-                case "Triggered by Directory Change":
+                case "Triggered by Directory Changes":
                     if(_dirView == null)
                         _dirView = new DirectoryView();
                     return _dirView;
-                case "Triggered by File Change":
+                case "Triggered by File Changes":
                     if(_fileView == null)
                         _fileView = new FileView();
                     return _fileView;
@@ -45,7 +45,7 @@ namespace VxShutdownTimer.GUI
                     if(_procView == null)
                         _procView = new ProcessView();
                     return _procView;
-                case "Triggered by Timezone Change":
+                case "Triggered by Timezone Changes":
                     if(_tzView == null)
                         _tzView = new TimeZoneView();
                     return _tzView;
