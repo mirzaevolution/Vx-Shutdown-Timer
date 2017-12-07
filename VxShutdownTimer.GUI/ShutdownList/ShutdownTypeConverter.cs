@@ -10,7 +10,7 @@ namespace VxShutdownTimer.GUI.ShutdownList
         public object Convert(object value, Type targetType, object parameter, CultureInfo culture)
         {
             ShutdownType type;
-            if(Enum.TryParse<ShutdownType>(value.ToString(),out type))
+            if(Enum.TryParse(value.ToString(),out type))
             {
                 switch(type)
                 {
