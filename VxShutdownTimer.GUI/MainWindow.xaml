@@ -95,12 +95,12 @@
                 <GroupBox TextElement.FontFamily="Sans Serif" Header="Select Trigger" Margin="5" BorderBrush="Red" BorderThickness="1.4" FontSize="16">
                     <ComboBox Margin="10" BorderBrush="Red" BorderThickness="1.4" Name="ComboBoxTrigger" SelectedIndex="0" FontSize="15" Height="35" Cursor="Hand">
                         <sys:String>Triggered by Internet Connectivity</sys:String>
-                        <sys:String>Triggered by Battery Percent Changes</sys:String>
-                        <sys:String>Triggered by Day Changes</sys:String>
-                        <sys:String>Triggered by Directory Changes</sys:String>
-                        <sys:String>Triggered by File Changes</sys:String>
+                        <sys:String>Triggered by Battery Percent Change</sys:String>
+                        <sys:String>Triggered by Day Change</sys:String>
+                        <sys:String>Triggered by Directory Change</sys:String>
+                        <sys:String>Triggered by File Change</sys:String>
                         <sys:String>Triggered by Process</sys:String>
-                        <sys:String>Triggered by Timezone Changes</sys:String>
+                        <sys:String>Triggered by Timezone Change</sys:String>
                     </ComboBox>
                 </GroupBox>
                 <controls:MetroContentControl TextElement.FontFamily="Sans Serif" Grid.Row="1" Content="{Binding ElementName=ComboBoxTrigger,Path=SelectedItem,Converter={StaticResource ViewConverter}}" TransitionsEnabled="True"/>
