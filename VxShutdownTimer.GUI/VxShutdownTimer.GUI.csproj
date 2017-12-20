@@ -242,7 +242,9 @@
       <Name>ShutdownLib</Name>
     </ProjectReference>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Resource Include="Contents\info.ico" />
+  </ItemGroup>
   <ItemGroup>
     <Resource Include="Contents\close.png" />
     <Resource Include="Contents\hibernate.png" />
@@ -262,7 +264,6 @@
     <Resource Include="Contents\lock.png" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Contents\info.ico" />
     <Resource Include="Contents\lock.ico" />
     <Resource Include="Contents\logoff.ico" />
     <Resource Include="Contents\restart.ico" />
@@ -289,6 +290,9 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Contents\exit.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Contents\tray_icon.ico" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -36,22 +36,18 @@
                         </Image.Source>
                     </Image>
                 </Grid>
-            </Button>    
+            </Button>
         </controls:WindowCommands>
     </controls:MetroWindow.LeftWindowCommands>
     <controls:MetroWindow.RightWindowCommands>
         <controls:WindowCommands>
-        
+
             <Button Name="ButtonAbout" Click="ButtonAbout_Click" Cursor="Hand" ToolTip="About">
                 <Grid>
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="auto"/>
                     </Grid.ColumnDefinitions>
-                    <Image Margin="2,2,3,2" Height="20" Width="20">
-                        <Image.Source>
-                            <BitmapImage UriSource="/Contents/info.ico" DecodePixelHeight="30" DecodePixelWidth="30"/>
-                        </Image.Source>
-                    </Image>
+                    <Image Margin="2,2,3,2" Height="20" Width="20" Source="/Contents/info.ico"/>
                 </Grid>
             </Button>
             <Button Name="ButtonTray" Click="ButtonTray_Click" Cursor="Hand" ToolTip="Goto Taskbar Tray">
@@ -61,7 +57,7 @@
                     </Grid.ColumnDefinitions>
                     <Image Margin="2,2,3,2" Height="20" Width="20">
                         <Image.Source>
-                            <BitmapImage UriSource="/Contents/tray.ico" DecodePixelHeight="30" DecodePixelWidth="30"/>
+                            <BitmapImage UriSource="/Contents/tray_icon.ico" DecodePixelHeight="30" DecodePixelWidth="30"/>
                         </Image.Source>
                     </Image>
                 </Grid>
@@ -116,7 +112,7 @@
                             <RowDefinition Height="auto"/>
                             <RowDefinition Height="auto"/>
                         </Grid.RowDefinitions>
-                        
+
                         <Button Name="ButtonShowWindow" Click="ButtonShowWindow_Click" ToolTip="Show App" Cursor="Hand"
                                 Background="Transparent" Margin="2" controls:ButtonHelper.CornerRadius="50"  BorderBrush="Red" BorderThickness="1.4" Width="50" Height="50">
                             <Image Margin="2">
@@ -138,5 +134,5 @@
             </info:TaskbarIcon.TrayPopup>
         </info:TaskbarIcon>
     </controls:MetroTabControl>
-    
+
 </controls:MetroWindow>
