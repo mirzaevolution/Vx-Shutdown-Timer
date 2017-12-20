@@ -29,7 +29,7 @@ Not only timer or schedule based operation, this software also supports direct c
 
 ![VX Shutdown Timer5](https://raw.githubusercontent.com/mirzaevolution/Vx-Shutdown-Timer/master/ScreenShots/8.png)
 
-![VX Shutdown Timer6](https://raw.githubusercontent.com/mirzaevolution/Vx-Shutdown-Timer/master/ScreenShots/14.png)
+![VX Shutdown Timer6](https://raw.githubusercontent.com/mirzaevolution/Vx-Shutdown-Timer/master/ScreenShots/14.1.png)
 
 ![VX Shutdown Timer7](https://raw.githubusercontent.com/mirzaevolution/Vx-Shutdown-Timer/master/ScreenShots/11.PNG)
 
