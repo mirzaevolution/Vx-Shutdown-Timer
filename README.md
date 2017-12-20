@@ -41,7 +41,7 @@ For more information about this software, you can view our documentation here:
 
 To download this setup for this software, you can download here:
 
-### [DOWNLOAD](https://drive.google.com/file/d/1M-hkLoM4R8AeoQnh-67RCmZAinUoNhbJ/view?usp=sharing)
+### [DOWNLOAD](https://drive.google.com/file/d/1YbSLm20OE65MIWrmYkJiFoGiWeTMXVT5/view?usp=sharing)
 
 
 Copyright (c) 2017 [Mirza Ghulam Rasyid](https://twitter.com/mirzaevolution)
